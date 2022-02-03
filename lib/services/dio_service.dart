@@ -1,23 +1,24 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:naps_app/models/environment.dart';
 
 class DioService {
   final Dio _dio = Dio();
 
-  final baseUrl = "https://newsapi.org/v2/";
+  final baseUrl = Environment.apiBaseUrl;
 
-  final apiKey = "4ab677b4d3734bdd9ea279a4121ba4fa";
+  final apiKey = Environment.apiKey;
 
   DioService() {
     Dio(
-      BaseOptions(baseUrl: baseUrl),
+      BaseOptions(baseUrl: baseUrl!),
     );
 
     _initializeInterceptors();
   }
 
   Future<Response?> get(String endpoint, String category) async {
-    final queryUrl = baseUrl + endpoint;
+    final queryUrl = baseUrl! + endpoint;
 
     Response? response;
 
