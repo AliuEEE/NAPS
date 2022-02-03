@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
 
-    client.getData("health");
+    client.getData("business");
     super.initState();
   }
 
