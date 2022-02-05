@@ -5,11 +5,11 @@ part 'article_model.g.dart';
 
 @JsonSerializable()
 class Article {
-  final Source source;
-  final String title;
-  final String description;
-  final String url;
-  final String urlToImage;
+  final Source? source;
+  final String? title;
+  final String? description;
+  final String? url;
+  final String? urlToImage;
 
   Article(
       {required this.source,

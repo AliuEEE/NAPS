@@ -5,7 +5,7 @@ part 'business_model.g.dart';
 
 @JsonSerializable()
 class Business {
-  List<Article> articles;
+  List<Article?> articles;
 
   Business({required this.articles});
 
