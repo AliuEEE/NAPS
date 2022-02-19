@@ -21,6 +21,7 @@ class NewsWidget extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => DetailScreen(
                       article: article,
+                      defaultImage: defaultImage,
                     )),
           );
         },
@@ -33,9 +34,15 @@ class NewsWidget extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2.0),
                 borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(article?.urlToImage ?? defaultImage),
+              ),
+              child: Hero(
+                tag: article?.urlToImage ?? defaultImage,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image(
+                    image: NetworkImage(article?.urlToImage ?? defaultImage),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
